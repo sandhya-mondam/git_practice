@@ -1,0 +1,54 @@
+1. Sequence Creation :
+
+A. create a my_sequence.xml file in data directory
+
+it should contain following code :
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <record id="my_doctor_sequence_id" model="ir.sequence">
+      <field name="name">My Sequence</field>
+      <field name="code">my_doctor_sequence</field>  #change this according to your need
+      <field name="prefix">DOC</field>
+      <field name="padding">4</field> #helps you to create like DOC0001
+      <field name="number_next">1</field>
+    </record>
+  </data>
+</odoo>
+
+
+B. create an api.model in corresponding model.
+
+@api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('my_doctor_sequence')  # code comes according to your sequence code
+        return super(Doctor, self).create(vals)  #Doctor is corresponding class name
+
+C. finally add your data/sequence files in manifest file
+
+
+
+
+
+
+
+2. Field Attributes::
+
+string = "Corresponding Name"
+required = True/False --> if true then the field mandatarily filled by user
+help = "corresponding text" --> lets say field is age then you type "Enter your age"
+index =True/False --> creates a index for column --> When we use particular column mostly in searching and filtering
+default = "corresponding value"
+readonly = True/False
+translate = True/False
+groups = "base.user_group" --> fields available for only some group users
+states =
+
+
+
+
+3. Date and Time fields in Odoo
+default = fields.Date.context_today (for Date as default)
+default = fields.Datetime.now ( for time and date default)
+

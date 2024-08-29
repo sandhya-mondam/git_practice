@@ -1,0 +1,27 @@
+1. traverse to your folder (floweazy_training):
+2. git clone "paste the link "
+3. git branch --> will show you in which branch you are in
+4. git checkout -b branch_name origin/branch_name (branch name should be something that is already in git)
+5. git checkout branch_name (takes you to the partciular branch inside local)
+
+
+
+creating new branch :
+1. create a branch from master branch
+git checkout -b dev_sandhya_minor_imp origin/main (only in local system)
+git diff (for all difference)
+git diff file (to have a look at difference in the particular file)
+
+2. Push code to staging server:
+
+git add file_name
+git pull origin main
+git commit -m "[IMP/ADD] comment"
+git branch -rm branch_name (to change to another branch)
+git fetch --all -p  (to fetch all the changes in all branches)
+git merge my_branch origin/main_branch
+git branch -a ( all branches you can see)
+git push origin -d branch_name (local to server)
+git push origin -d ( branch will get deleted in git)
+
+

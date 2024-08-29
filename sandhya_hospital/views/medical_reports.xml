@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_medical_reports_form" model="ir.ui.view">
+        <field name="name">medical_reports.form</field>
+        <field name="model">medical.reports</field>
+        <field name="arch" type="xml">
+            <form string="Medical Reports">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="color_tags" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_medical_report_tree" model="ir.ui.view">
+        <field name="name">medical_reports.tree</field>
+        <field name="model">medical.reports</field>
+        <field name="arch" type="xml">
+            <tree string="Medical reports">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="color_tags" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_medical_reports" model="ir.actions.act_window">
+        <field name="name">Medical reports</field>
+        <field name="res_model">medical.reports</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_medical_reports" name="Medical reports" parent="menu_hospital_root" action="action_medical_reports" sequence="50"/>
+
+
+</odoo>
