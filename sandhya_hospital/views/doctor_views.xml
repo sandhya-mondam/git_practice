@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_doctor_form" model="ir.ui.view">
+        <field name="name">doctor.form</field>
+        <field name="model">doctor.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="doctor_name"/>
+                            <field name="specialization"/>
+                            <field name="salary"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="department"/>
+                        </group>
+                        <group>
+                            <field name="image_1920" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Patient Appointments">
+                            <field name="appointment_ids">
+                                <tree editable="false">
+                                    <field name="name"/>
+                                    <field name="patient_id"/>
+                                    <field name="appointment_date"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_doctor_tree" model="ir.ui.view">
+        <field name="name">doctor.tree</field>
+        <field name="model">doctor.doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor">
+
+                <field name="name"/>
+                <field name="doctor_name"/>
+                <field name="specialization"/>
+                <field name="department"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">doctor.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_doctor" name="Doctors" parent="menu_hospital_root" action="action_doctor" sequence="30"/>
+</odoo>
